@@ -5,7 +5,10 @@ import { Carousel } from 'antd-mobile';
 
 class Home extends Component {
     state={
+        // 轮播图
         sliderlist:[],
+        // 推荐商品
+        toplist:[],
         imgHeight:176,
     }
     componentDidMount(){
@@ -13,15 +16,15 @@ class Home extends Component {
         .then(res=>{
             console.log(res);   // 拦截器里返回什么,Home里就打印什么
             let { data } = res
-            console.log(data);
             if(data.status===0){
                 // 成功
                 this.setState({ sliderlist:data.message.sliderlist });
+                this.setState({ toplist:data.message.toplist });
             }
         })
     }
     render(){
-        console.log("render Home");
+        // console.log("render Home");
         return( 
             <Fragment>
                 {/* 轮播图 start */}
@@ -49,6 +52,59 @@ class Home extends Component {
                 ))}
                 </Carousel>
                 {/* 轮播图 end */}
+                {/* 推荐商品 start */}
+                <div className="recommend_goods">
+                    <div className="recommend_goods_title">推荐商品</div>
+                    <div className="recommend_goods_content">
+                        {this.state.toplist.map(v=>
+                            <a key={v.id} href="javascript:;" className="recommend_goods_item">
+                                <div className="recommend_img_wrap"><img src={v.img_url} alt="" /></div>
+                                <div className="recommend_goods_name">
+                                    <p>{v.title}</p>
+                                </div>
+                            </a>
+                        )}
+                    </div>
+                    <style jsx>{`.recommend_goods{
+                        .recommend_goods_title{
+                            padding:10px;
+                            font-size:14px;
+                            font-weight: 500;
+                            background-color: #f5f5f5;
+                        }
+                        .recommend_goods_content{
+                            .recommend_goods_item{
+                                display: flex;
+                                background-color: #fff;
+                                border-bottom:1px solid #666;
+                                :last-child{
+                                    border-bottom:1px solid transparent;
+                                }
+                                .recommend_img_wrap{
+                                    flex:1;
+                                    padding:10px;
+                                    img{}
+                                }
+                                .recommend_goods_name{
+                                    flex:6;
+                                    display:flex;
+                                    align-items:center;
+                                    font-size:14px;
+                                    
+                                    overflow: hidden;
+                                    p{
+                                        text-overflow:ellipsis;
+                                        overflow:hidden;
+                                        white-space:nowrap;
+                                    }
+                                }
+                            }
+                        }
+                    }                      
+                    `}
+                    </style>
+                </div>
+                {/* 推荐商品 end */}
             </Fragment>
         );
     }

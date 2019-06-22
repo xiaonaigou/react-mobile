@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+img{
+    width:100%;
+    /* 去除图片的3px间隙 */
+    display: block;
+}
+a{
+    /* 继承 */
+    color:inherit;
+    text-decoration: none;
+    /* 移动端点击a标签高亮颜色 */
+    -webkit-tap-highlight-color:transparent;
+}
