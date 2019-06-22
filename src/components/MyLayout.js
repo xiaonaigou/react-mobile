@@ -12,6 +12,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <Fragment>
         <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
@@ -25,16 +26,13 @@ class App extends Component {
             key="Home"
             icon={<span className="iconfont icon-home" /> }
             selectedIcon={<span className="iconfont icon-home" /> }
-            selected={this.state.selectedTab === 'blueTab'}
+            selected={this.props.match.url === '/'}
             // badge={1}
-            onPress={() => {
-              this.setState({
-                selectedTab: 'blueTab',
-              });
-            }}
+            onPress={() => { this.props.Reacthistory.push("/") }}
             data-seed="logId"
           >
-            80组件
+            {/* 80组件 */}
+            {this.props.children}
           </TabBar.Item>
           <TabBar.Item
             icon={ <span className="iconfont icon-gouwuche" /> }
@@ -43,15 +41,12 @@ class App extends Component {
             title="购物车"
             key="Cart"
             badge={'1'}
-            selected={this.state.selectedTab === 'redTab'}
-            onPress={() => {
-              this.setState({
-                selectedTab: 'redTab',
-              });
-            }}
+            selected={this.props.match.url === '/Cart'}
+            onPress={() => { this.props.history.push("/Cart") }}
             data-seed="logId"
           >
-            334组件
+            {/* 334组件 */}
+            {this.props.children}
           </TabBar.Item>
           <TabBar.Item
             icon={ <span className="iconfont icon-weibiaoti2fuzhi12" /> }
@@ -60,14 +55,11 @@ class App extends Component {
             title="我的"
             key="Mine"
             // dot  // 点
-            selected={this.state.selectedTab === 'greenTab'}
-            onPress={() => {
-              this.setState({
-                selectedTab: 'greenTab',
-              });
-            }}
+            selected={this.props.match.url === '/Mine'}
+            onPress={() => { this.props.history.push("/Mine") }}
           >
-            51组件
+            {/* 51组件 */}
+            {this.props.children}
           </TabBar.Item>
           
         </TabBar>
