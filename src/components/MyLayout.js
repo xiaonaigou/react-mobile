@@ -28,11 +28,11 @@ class App extends Component {
             selectedIcon={<span className="iconfont icon-home" /> }
             selected={this.props.match.url === '/'}
             // badge={1}
-            onPress={() => { this.props.Reacthistory.push("/") }}
+            onPress={() => { this.props.history.push("/") }}
             data-seed="logId"
           >
             {/* 80组件 */}
-            {this.props.children}
+            { this.props.match.url==="/"?this.props.children:null }
           </TabBar.Item>
           <TabBar.Item
             icon={ <span className="iconfont icon-gouwuche" /> }
@@ -46,7 +46,7 @@ class App extends Component {
             data-seed="logId"
           >
             {/* 334组件 */}
-            {this.props.children}
+            { this.props.match.url==="/Cart"?this.props.children:null }
           </TabBar.Item>
           <TabBar.Item
             icon={ <span className="iconfont icon-weibiaoti2fuzhi12" /> }
@@ -59,7 +59,7 @@ class App extends Component {
             onPress={() => { this.props.history.push("/Mine") }}
           >
             {/* 51组件 */}
-            {this.props.children}
+            { this.props.match.url==="/Mine"?this.props.children:null }
           </TabBar.Item>
           
         </TabBar>
