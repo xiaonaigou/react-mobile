@@ -128,7 +128,7 @@ class Home extends Component {
                             <div className="goods_group_item_content">
                                 {v1.datas.map(v2=>
                                     // console.log(v1.datas);
-                                    <a href="javascript:;" onClick={()=>this.props.history.push("/GoodsDetail/ + v2.artID")} key={v2.artID} className="goods_item">
+                                    <a href="javascript:;" onClick={()=>this.props.history.push("/GoodsDetail/"+ v2.artID)} key={v2.artID} className="goods_item">
                                         <img src={v2.img_url} alt="" />
                                         <div className="artTitle">{v2.artTitle}</div>
                                         <div className="goods_price">
