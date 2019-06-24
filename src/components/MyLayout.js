@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <Fragment>
         <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
