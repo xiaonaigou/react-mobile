@@ -67,6 +67,7 @@ class Home extends Component {
                 ))}
                 </Carousel>
                 {/* 轮播图 end */}
+
                 {/* 推荐商品 start */}
                 <div className="recommend_goods">
                     <div className="recommend_goods_title">推荐商品</div>
@@ -120,6 +121,7 @@ class Home extends Component {
                     </style>
                 </div>
                 {/* 推荐商品 end */}
+                
                 {/* 商品列表 start */}
                 <div className="goods_group">
                     {this.state.goodsGroupList.map(v1=>

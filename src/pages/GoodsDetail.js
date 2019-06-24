@@ -39,6 +39,7 @@ class GoodsDetail extends Component {
             >商品详情</NavBar>
             </div>
             {/* 头部导航 end */}
+
             {/* 轮播图 start */}
             <Carousel
           autoplay
@@ -64,6 +65,7 @@ class GoodsDetail extends Component {
           ))}
         </Carousel>
             {/* 轮播图 end */}
+
             {/* 商品信息 start */}
             <div className="goods_info">
             {/* {console.log(this.state.goodsinfo)} */}
@@ -83,6 +85,7 @@ class GoodsDetail extends Component {
                 <style jsx>{`
                     .goods_info{
                         padding: 10px;
+                        margin-bottom:40px;
                         background-color: #fff;
                         .goods_title{
                             padding:5px 0;
@@ -128,6 +131,67 @@ class GoodsDetail extends Component {
                 </style>
             </div>
             {/* 商品信息 end */}
+
+            {/* 底部工具栏 start */}
+            <div className="btm_tool">
+                <div className="btn_item btm_kefu">
+                    <span className="iconfont icon-kefu"></span>
+                    <p>客服</p>
+                </div>
+                <div className="btn_item btm_cart">
+                    <span className="iconfont icon-gouwuche"></span>
+                    <p>购物车</p>
+                    <span className="badge">2</span>
+                </div>
+                <div className="btn_item btm_cart_add">
+                    加入购物车
+                </div>
+                <div className="btn_item btm_buy">
+                    立即购买
+                </div>
+                <style jsx>{`
+                    .btm_tool{
+                        display:flex;
+                        position: fixed;
+                        height: 40px;;
+                        width: 100%;
+                        background-color: #fff;
+                        left:0;
+                        bottom: 0;
+                        .btn_item{
+                            flex:1;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            flex-direction: column;
+                        }
+                        .btm_kefu{}
+                        .btm_cart{
+                            position: relative;
+                            .badge{
+                                position: absolute;
+                                top:0;
+                                left:50%;
+                                background-color: orangered;
+                                border-radius: 30px;
+                                color:white;
+                                font-size: 12px;
+                                padding:0 4px;
+                            }
+                        }
+                        .btm_cart_add{
+                            flex:2;
+                            background:orange;
+                        }
+                        .btm_buy{
+                            flex:2;
+                            background:orangered;
+                        }
+                    }
+                `}
+                </style>
+            </div>
+            {/* 底部工具栏 end */}
          </Fragment>
      )
  }
